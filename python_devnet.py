@@ -33,6 +33,7 @@ tn.write(b"session-timeout 3\n")
 tn.write(b"session-limit 2\n")
 tn.write(b"logging synchronous\n")
 tn.write(b"exit\n")
+tn.write(b"shell processing full\n")
 tn.write(b"do write memory\n")
 
 print(tn.read_all().decode('ascii'))
