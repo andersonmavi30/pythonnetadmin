@@ -1,5 +1,7 @@
 # Python for Network Administrators
 
+🇨🇴 [Español](README.es.md)
+
 Python projects, scripts and labs focused on **Network Automation, Network Programmability, DevNet and NetDevOps**.
 
 This repository documents my progression using Python to automate common network administration tasks and interact programmatically with network infrastructure.
