@@ -162,6 +162,10 @@ This repository is part of my continuous development in:
 
 New scripts, labs and automation approaches will be added progressively.
 
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
+
 ## 👨‍💻 Author
 
 **Anderson Martinez Virviescas**
