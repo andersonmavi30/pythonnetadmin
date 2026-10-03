@@ -1,0 +1,5 @@
+---
+arista-01:
+  hostname: 192.0.2.10
+  groups:
+    - arista
