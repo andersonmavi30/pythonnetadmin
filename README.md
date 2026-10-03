@@ -39,9 +39,9 @@ Current project structure:
 | **Cisco** | ✅ Implemented | ✅ | ✅ | ✅ |
 | **Arista** | ✅ Implemented | ✅ | ✅ | ✅ |
 | **Juniper** | ✅ Implemented | ✅ | ✅ | ✅ |
-| Aruba | Planned | ✅ planned | Driver dependent | ✅ planned |
-| Huawei | Planned | ✅ planned | Driver dependent | ✅ planned |
-| Nokia | Planned | Platform dependent | Driver dependent | ✅ planned |
+| **Aruba AOS-CX** | ✅ Implemented | ✅ | External-driver template | ✅ |
+| **Huawei VRP** | ✅ Implemented | ✅ | External-driver template | ✅ |
+| **Nokia SR OS** | ✅ Implemented | ✅ | External-driver template | ✅ |
 | SONiC | Planned | Platform dependent | Community/driver dependent | ✅ planned |
 | Dell OS6 / OS9 / OS10 / Enterprise SONiC | Planned | ✅ planned | Driver dependent | ✅ planned |
 | NVIDIA Cumulus Linux / NVUE | Planned | Linux SSH / platform dependent | Driver dependent | ✅ planned |
@@ -53,15 +53,23 @@ Current project structure:
 
 ## 📊 Current Progress
 
-**3 of 10 vendor/platform groups implemented — 30%**
+**6 of 10 vendor/platform groups implemented — 60%**
 
-Current completed first wave:
+Completed waves:
 
+### Wave 1
 - Cisco
 - Arista
 - Juniper
 
-Each of these includes working starter toolkits for Netmiko, NAPALM and Nornir.
+These platforms include Netmiko, native/core NAPALM examples and Nornir.
+
+### Wave 2
+- Huawei VRP
+- Aruba AOS-CX
+- Nokia SR OS
+
+These platforms include Netmiko and Nornir operational toolkits plus a guarded NAPALM external-driver template. The NAPALM template requires an explicitly selected and validated third-party driver before execution.
 
 ---
 
@@ -150,7 +158,9 @@ Each vendor uses platform-specific commands instead of pretending all CLIs behav
 
 NAPALM examples focus on structured multi-vendor data collection and safe configuration workflows.
 
-Current toolkits demonstrate getters such as:
+For Cisco, Arista and Juniper, the repository uses the corresponding NAPALM drivers directly. For Huawei, Aruba and Nokia, the repository provides an external-driver template with `DRIVER = "CHANGE_ME_DRIVER"` and does not claim native/core NAPALM support.
+
+Where a validated driver is available, the toolkits can expose getters such as:
 
 - Facts
 - Interfaces
@@ -221,12 +231,6 @@ Do not commit production passwords, API tokens or private keys to Git.
 ---
 
 ## 🧭 Planned Next Waves
-
-### Wave 2
-
-- Huawei
-- Aruba
-- Nokia
 
 ### Wave 3
 
