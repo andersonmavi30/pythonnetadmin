@@ -39,9 +39,9 @@ Estado actual:
 | **Cisco** | ✅ Implementado | ✅ | ✅ | ✅ |
 | **Arista** | ✅ Implementado | ✅ | ✅ | ✅ |
 | **Juniper** | ✅ Implementado | ✅ | ✅ | ✅ |
-| Aruba | Planeado | ✅ planeado | Depende del driver | ✅ planeado |
-| Huawei | Planeado | ✅ planeado | Depende del driver | ✅ planeado |
-| Nokia | Planeado | Depende de plataforma | Depende del driver | ✅ planeado |
+| **Aruba AOS-CX** | ✅ Implementado | ✅ | Template con driver externo | ✅ |
+| **Huawei VRP** | ✅ Implementado | ✅ | Template con driver externo | ✅ |
+| **Nokia SR OS** | ✅ Implementado | ✅ | Template con driver externo | ✅ |
 | SONiC | Planeado | Depende de plataforma | Depende de driver/community | ✅ planeado |
 | Dell OS6 / OS9 / OS10 / Enterprise SONiC | Planeado | ✅ planeado | Depende del driver | ✅ planeado |
 | NVIDIA Cumulus Linux / NVUE | Planeado | Linux SSH / depende de plataforma | Depende del driver | ✅ planeado |
@@ -53,15 +53,23 @@ Estado actual:
 
 ## 📊 Avance actual
 
-**3 de 10 grupos de fabricantes/plataformas implementados — 30 %**
+**6 de 10 grupos de fabricantes/plataformas implementados — 60 %**
 
-Primera tanda completada:
+Tandas completadas:
 
+### Tanda 1
 - Cisco
 - Arista
 - Juniper
 
-Cada uno cuenta actualmente con toolkits iniciales de Netmiko, NAPALM y Nornir.
+Estas plataformas incluyen ejemplos de Netmiko, NAPALM con sus drivers correspondientes y Nornir.
+
+### Tanda 2
+- Huawei VRP
+- Aruba AOS-CX
+- Nokia SR OS
+
+Estas plataformas incluyen toolkits operativos de Netmiko y Nornir, además de un template NAPALM protegido para driver externo. El template NAPALM exige seleccionar y validar explícitamente un driver de terceros antes de ejecutarlo.
 
 ---
 
@@ -150,7 +158,9 @@ Cada fabricante utiliza sus comandos específicos en lugar de asumir que todos l
 
 Los ejemplos NAPALM se enfocan en recolección estructurada multi-vendor y flujos seguros de configuración.
 
-Los toolkits actuales muestran getters como:
+Para Cisco, Arista y Juniper el repositorio utiliza directamente los drivers correspondientes de NAPALM. Para Huawei, Aruba y Nokia se incluye un template para driver externo con `DRIVER = "CHANGE_ME_DRIVER"`, sin afirmar soporte nativo/core de NAPALM.
+
+Cuando existe un driver validado, los toolkits pueden exponer getters como:
 
 - Facts
 - Interfaces
@@ -221,12 +231,6 @@ No almacenes passwords productivos, tokens de API o llaves privadas dentro de Gi
 ---
 
 ## 🧭 Próximas tandas
-
-### Tanda 2
-
-- Huawei
-- Aruba
-- Nokia
 
 ### Tanda 3
 
