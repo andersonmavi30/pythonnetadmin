@@ -1,8 +1,8 @@
 # Networking Automation
 
-This directory contains practical Python examples for day-to-day **network administration, operations and troubleshooting** across multiple vendors.
+This directory contains practical Python examples for day-to-day **network administration, operations and troubleshooting** across multiple vendors and network operating systems.
 
-The labs will be organized by vendor and progressively implemented with:
+The labs will be organized by vendor/platform and progressively implemented with:
 
 - **Netmiko** — SSH/CLI automation
 - **NAPALM** — structured multi-vendor getters and configuration workflows where supported
@@ -17,7 +17,11 @@ networking/
 ├── Juniper/
 ├── Aruba/
 ├── Huawei/
-└── Nokia/
+├── Nokia/
+├── SONiC/
+├── Dell/
+├── NVIDIA/
+└── VyOS/
 ```
 
 ## Automation Focus
@@ -40,7 +44,7 @@ Examples will cover common operational tasks such as:
 
 ## Framework Coverage
 
-| Vendor | Netmiko | NAPALM | Nornir |
+| Vendor / Platform | Netmiko | NAPALM | Nornir |
 |---|---:|---:|---:|
 | Cisco | ✅ | ✅ | ✅ |
 | Arista | ✅ | ✅ | ✅ |
@@ -48,5 +52,9 @@ Examples will cover common operational tasks such as:
 | Aruba | ✅ | Limited / driver dependent | ✅ |
 | Huawei | ✅ | Limited / driver dependent | ✅ |
 | Nokia | ✅ / platform dependent | Limited / driver dependent | ✅ |
+| SONiC | ✅ / platform dependent | Limited / community driver | ✅ |
+| Dell | ✅ | Limited / driver dependent | ✅ |
+| NVIDIA Cumulus Linux | ✅ / Linux SSH | Limited / driver dependent | ✅ |
+| VyOS | ✅ | Limited / driver dependent | ✅ |
 
-> NAPALM examples will only be added where the selected platform/driver is appropriate and maintainable.
+> NAPALM examples will only be added where the selected platform/driver is appropriate and maintainable. Where a native NAPALM driver is not practical, the repository will favor Netmiko, Nornir or platform APIs instead.
