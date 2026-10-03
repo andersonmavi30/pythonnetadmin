@@ -1,166 +1,252 @@
-# Python for Network Administrators
+# 🐍 Python Network Automation
 
 🇨🇴 [Español](README.es.md)
 
-Python projects, scripts and labs focused on **Network Automation, Network Programmability, DevNet and NetDevOps**.
+Practical **multi-vendor Network Automation** repository focused on day-to-day network administration, operations and troubleshooting using Python.
 
-This repository documents my progression using Python to automate common network administration tasks and interact programmatically with network infrastructure.
+The project is organized by vendor/platform and progressively implements reusable examples with:
+
+- **Netmiko** — SSH/CLI automation
+- **NAPALM** — structured getters and configuration workflows where supported
+- **Nornir** — inventory-driven multi-device orchestration
+
+The repository is designed around realistic operational tasks rather than isolated syntax examples.
+
+---
 
 ## 🎯 Project Objective
 
-The goal of this repository is to develop practical Python skills applied specifically to networking.
+The objective is to build a practical Python toolbox for network engineers who need to:
 
-The projects progressively explore how Python can be used to:
+- Collect operational state
+- Troubleshoot devices
+- Validate network health
+- Back up configurations
+- Perform controlled configuration changes
+- Execute tasks across multiple devices
+- Work consistently across multiple vendors
 
-- Reduce repetitive network administration tasks
-- Configure multiple network devices
-- Collect operational information
-- Generate configurations
-- Validate network state
-- Process structured network data
-- Interact with devices through SSH and APIs
-- Build reusable Network Automation tools
+The long-term goal is to keep the same operational intent while adapting the implementation to each vendor and network operating system.
 
-## 🐍 Technology Focus
+---
 
-The repository will progressively cover technologies and libraries such as:
+## 🌐 Vendor / Platform Coverage
 
-- Python
-- Netmiko
-- Paramiko
-- Jinja2
-- REST APIs
-- JSON
-- YAML
-- SSH
-- Network device APIs
-- Git
-- Network Automation
-- NetDevOps
-- Cisco DevNet concepts
+Current project structure:
 
-## 🌐 Network Automation Areas
+| Vendor / Platform | Status | Netmiko | NAPALM | Nornir |
+|---|---|---:|---:|---:|
+| **Cisco** | ✅ Implemented | ✅ | ✅ | ✅ |
+| **Arista** | ✅ Implemented | ✅ | ✅ | ✅ |
+| **Juniper** | ✅ Implemented | ✅ | ✅ | ✅ |
+| Aruba | Planned | ✅ planned | Driver dependent | ✅ planned |
+| Huawei | Planned | ✅ planned | Driver dependent | ✅ planned |
+| Nokia | Planned | Platform dependent | Driver dependent | ✅ planned |
+| SONiC | Planned | Platform dependent | Community/driver dependent | ✅ planned |
+| Dell OS6 / OS9 / OS10 / Enterprise SONiC | Planned | ✅ planned | Driver dependent | ✅ planned |
+| NVIDIA Cumulus Linux / NVUE | Planned | Linux SSH / platform dependent | Driver dependent | ✅ planned |
+| VyOS | Planned | ✅ planned | Driver dependent | ✅ planned |
 
-Projects and labs may include:
+> NAPALM is only used where an appropriate maintained driver makes sense. The repository will not force NAPALM support where Netmiko, Nornir, APIs or another platform-specific method is more appropriate.
 
-- Device connectivity
-- Configuration deployment
-- Multi-device automation
-- VLAN automation
-- Interface configuration
-- Configuration backups
-- Configuration validation
-- Operational commands
-- Inventory processing
-- Configuration generation with Jinja2
-- Data parsing
-- Network health checks
-- Pre-check and post-check validation
-- API interaction
-- Reporting
-- Error handling
-- Logging
+---
 
-## 📂 Current Labs
+## 📊 Current Progress
 
-### `python_devnet.py`
+**3 of 10 vendor/platform groups implemented — 30%**
 
-Early Network Automation lab using Python to connect to multiple **Cisco IOS switches** and automate configuration tasks.
+Current completed first wave:
 
-The script demonstrates concepts such as:
+- Cisco
+- Arista
+- Juniper
 
-- Device connectivity
-- Credential input with `getpass`
-- Automated CLI configuration
-- Hostname configuration
-- VLAN creation
-- Access port configuration
-- Local user configuration
-- Console configuration
-- Saving device configuration
-- Repetitive configuration across multiple switches
+Each of these includes working starter toolkits for Netmiko, NAPALM and Nornir.
 
-### `python_loops_devnet`
+---
 
-Learning exercise focused on introducing Python loops and reducing repetitive network configuration logic.
-
-These scripts represent early stages of the repository and are maintained as part of the learning progression toward more modern Network Automation approaches.
-
-## ⚠️ Legacy Lab Notice
-
-Some initial examples in this repository use **Telnet** and lab credentials for educational purposes.
-
-Telnet does not provide encrypted communication and should not be used for production network administration.
-
-Modern automation developed in this repository will prioritize technologies such as:
-
-- SSH
-- Netmiko
-- Paramiko
-- REST APIs
-- NETCONF
-- RESTCONF
-
-## ⚙️ Network Automation Evolution
-
-The repository represents a progression from traditional CLI scripting toward more structured Network Automation workflows.
+## 🗂️ Repository Structure
 
 ```text
-Python Basics
-     │
-     ▼
-CLI Automation
-     │
-     ▼
-SSH / Netmiko
-     │
-     ▼
-Templates / Structured Data
-     │
-     ▼
-APIs / Programmability
-     │
-     ▼
-Network Automation
-     │
-     ▼
-NetDevOps
-```
-
-## 📂 Future Repository Structure
-
-As new projects are added, the repository may evolve toward a structure similar to:
-
-```text
-pythonnetadmin/
+python_network_automation/
 │
-├── basics/
-├── netmiko/
-├── paramiko/
-├── jinja2/
-├── api/
-├── parsing/
-├── network-tools/
-├── labs/
-├── docs/
-└── README.md
+├── networking/
+│   ├── README.md
+│   ├── Cisco/
+│   ├── Arista/
+│   ├── Juniper/
+│   ├── Aruba/
+│   ├── Huawei/
+│   ├── Nokia/
+│   ├── SONiC/
+│   ├── Dell/
+│   ├── NVIDIA/
+│   └── VyOS/
+│
+├── README.md
+├── README.es.md
+└── LICENSE
 ```
 
-## 🧪 Lab Environment
+Implemented vendors currently follow this structure:
 
-The examples in this repository are intended primarily for laboratory and controlled environments.
+```text
+Vendor/
+├── README.md
+├── netmiko/
+│   └── operations_toolkit.py
+├── napalm/
+│   └── operations_toolkit.py
+└── nornir/
+    ├── operations_toolkit.py
+    ├── config.yaml
+    └── inventory/
+        ├── hosts.yaml
+        ├── groups.yaml
+        └── defaults.yaml
+```
 
-Always validate scripts and configuration changes before using them against production infrastructure.
+---
 
-## 📊 Repository Status
+## 🛠️ Operational Coverage
 
-> 🚧 **Continuous Development**
+The scripts are focused on common administration, operations and troubleshooting tasks such as:
 
-This repository is part of my continuous development in:
+- Device facts and inventory
+- Interface status
+- Interface errors
+- VLAN information
+- ARP table
+- MAC address table
+- LLDP neighbors
+- Routing table
+- CPU / memory / environment information
+- Running configuration backup
+- Connectivity validation
+- Troubleshooting command collection
+- Multi-device execution
+- Basic configuration changes
+- Structured output and artifact generation
 
-**Python | Network Automation | NetDevOps | DevNet | Network Programmability**
+---
 
-New scripts, labs and automation approaches will be added progressively.
+## 🔧 Netmiko
+
+Netmiko examples focus on direct SSH/CLI interaction.
+
+Typical usage includes:
+
+- Running operational show commands
+- Collecting troubleshooting evidence
+- Saving outputs to artifacts
+- Backing up running configurations
+- Sending controlled configuration commands
+
+Each vendor uses platform-specific commands instead of pretending all CLIs behave the same way.
+
+---
+
+## 📦 NAPALM
+
+NAPALM examples focus on structured multi-vendor data collection and safe configuration workflows.
+
+Current toolkits demonstrate getters such as:
+
+- Facts
+- Interfaces
+- Interface IP information
+- VLANs
+- ARP
+- MAC table
+- LLDP neighbors
+- Routes
+- Environment information
+- Running configuration
+
+Configuration examples use candidate configuration, diff/preview and commit/discard behavior.
+
+---
+
+## 🧵 Nornir
+
+Nornir examples provide inventory-driven multi-device execution.
+
+Each implemented vendor includes:
+
+- `config.yaml`
+- `hosts.yaml`
+- `groups.yaml`
+- `defaults.yaml`
+- `operations_toolkit.py`
+
+This makes it possible to run the same operational intent against multiple devices while keeping credentials, platform definitions and hosts separated from the Python logic.
+
+---
+
+## 🔒 Safe-by-Default Changes
+
+Configuration-changing examples are protected by:
+
+```python
+APPLY_CHANGE = False
+```
+
+By default, the examples collect or preview information without applying a configuration change.
+
+To perform a lab change, the engineer must explicitly review the script and enable the change behavior.
+
+> Always test against laboratory or controlled infrastructure before adapting examples to production.
+
+---
+
+## 🧪 Example Lab Variables
+
+The scripts intentionally use documentation/lab addressing such as:
+
+```text
+192.0.2.10
+```
+
+and placeholder credentials such as:
+
+```text
+username: netadmin
+password: CHANGE_ME
+```
+
+Replace these values with your lab inventory before execution.
+
+Do not commit production passwords, API tokens or private keys to Git.
+
+---
+
+## 🧭 Planned Next Waves
+
+### Wave 2
+
+- Huawei
+- Aruba
+- Nokia
+
+### Wave 3
+
+- Dell OS6 / OS9 / OS10 / Enterprise SONiC
+- SONiC
+- NVIDIA Cumulus Linux / NVUE
+- VyOS
+
+Future additions may also include:
+
+- TextFSM / structured parsing
+- Jinja2 configuration generation
+- Logging and exception handling
+- CSV / JSON reporting
+- Pre-check / post-check workflows
+- Configuration diff validation
+- APIs, NETCONF, RESTCONF and gNMI where appropriate
+- Tests and CI validation
+
+---
 
 ## 📄 License
 
@@ -170,10 +256,10 @@ This project is licensed under the [MIT License](LICENSE).
 
 **Anderson Martinez Virviescas**
 
-Network Administrator | Network Automation | NetDevOps | DevNet | Linux | Cybersecurity
+Network Administrator | Firewall Administrator | Network Automation | NetDevOps | Linux | Infrastructure Automation
 
 GitHub: [@andersonmavi30](https://github.com/andersonmavi30)
 
 ---
 
-> See it. Learn it. Code it. Automate it.
+> Operate the network. Understand the platform. Automate the workflow.
