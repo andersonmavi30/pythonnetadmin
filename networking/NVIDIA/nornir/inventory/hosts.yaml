@@ -1,0 +1,4 @@
+---
+nvidia-cumulus-01:
+  hostname: 192.0.2.30
+  groups: [nvidia_cumulus]

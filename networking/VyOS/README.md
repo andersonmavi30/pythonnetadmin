@@ -1,18 +1,32 @@
 # VyOS Networking Automation
 
-Python automation examples for VyOS router administration, operations and troubleshooting.
+Python automation examples for VyOS administration, operations and troubleshooting.
 
-Planned areas:
+## Implemented frameworks
 
-- Netmiko
-- Nornir
-- Operational commands
-- Interface inspection
-- Routing table checks
-- BGP / OSPF validation
-- Configuration backups
-- Configuration changes
-- Connectivity validation
-- Troubleshooting workflows
+- **Netmiko** — VyOS operational CLI and controlled configuration workflow
+- **Nornir + Netmiko** — inventory-driven multi-device operations
+- **NAPALM external-driver template** — requires an appropriate maintained external driver
 
-NAPALM examples will only be included when an appropriate maintained driver is selected.
+## Operational coverage
+
+- Version / facts
+- Interfaces
+- Interface detail / error-oriented inspection
+- VLAN interfaces
+- ARP
+- Bridge information
+- LLDP neighbors
+- IPv4 routing table
+- System resources
+- Configuration backup with `show configuration commands`
+- Troubleshooting collection
+- Basic configuration workflow using `configure → set → commit → save`
+
+Changes are disabled by default:
+
+```python
+APPLY_CHANGE = False
+```
+
+> Validate commands against the VyOS release used in your lab before enabling changes.

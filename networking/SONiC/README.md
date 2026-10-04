@@ -1,18 +1,24 @@
 # SONiC Networking Automation
 
-Python automation examples for SONiC-based network administration, operations and troubleshooting.
+Python automation examples for SONiC administration, operations and troubleshooting.
 
-Planned areas:
+## Implementation approach
 
-- Netmiko / SSH where supported by the target SONiC distribution
-- Nornir orchestration
-- Linux and SONiC CLI operational commands
-- Interface and port status
-- VLAN and LAG inspection
-- Routing and neighbor checks
-- Configuration validation
-- Troubleshooting workflows
+SONiC distributions can differ by vendor and release, so this repository uses a **Linux SSH / SONiC CLI** approach instead of pretending every SONiC implementation exposes an identical network-device driver.
 
-NAPALM examples will only be included when an appropriate maintained driver is available for the selected SONiC implementation.
+Implemented:
 
-Platform APIs and gNMI may also be incorporated as the repository evolves.
+- **Netmiko using the Linux driver**
+- **Nornir + Netmiko**
+- **NAPALM external-driver template**
+- Operational SONiC commands
+- `config_db.json` backup example
+- Safe-by-default CLI change example
+
+Operational areas include interfaces, counters, VLANs, ARP, MAC table, LLDP, routing, resources, backups and troubleshooting collection.
+
+```python
+APPLY_CHANGE = False
+```
+
+> Review commands against the exact SONiC distribution in use. Vendor-specific SONiC builds may expose different CLI commands, APIs or management frameworks.

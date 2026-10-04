@@ -1,0 +1,24 @@
+---
+dell-os6-01:
+  hostname: 192.0.2.11
+  groups: [dell_os6]
+  data:
+    profile: os6
+
+dell-os9-01:
+  hostname: 192.0.2.12
+  groups: [dell_os9]
+  data:
+    profile: os9
+
+dell-os10-01:
+  hostname: 192.0.2.13
+  groups: [dell_os10]
+  data:
+    profile: os10
+
+dell-sonic-01:
+  hostname: 192.0.2.14
+  groups: [dell_sonic]
+  data:
+    profile: enterprise_sonic

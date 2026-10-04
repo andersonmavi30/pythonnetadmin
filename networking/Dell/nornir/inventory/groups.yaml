@@ -1,0 +1,12 @@
+---
+dell_os6:
+  platform: dell_powerconnect
+
+dell_os9:
+  platform: dell_force10
+
+dell_os10:
+  platform: dell_os10
+
+dell_sonic:
+  platform: linux

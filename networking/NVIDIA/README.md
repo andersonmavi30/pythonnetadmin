@@ -1,18 +1,25 @@
 # NVIDIA Networking Automation
 
-Python automation examples focused primarily on **NVIDIA Cumulus Linux** network administration, operations and troubleshooting.
+Python automation examples focused on **NVIDIA Cumulus Linux and NVUE**.
 
-Planned areas:
+## Implementation approach
 
-- SSH / Linux CLI automation
-- Netmiko where appropriate
-- Nornir orchestration
-- Cumulus Linux operational checks
-- NVUE-related workflows
-- Interface, bridge and routing inspection
-- Configuration validation
-- Troubleshooting workflows
+Cumulus Linux is Linux-based, so the automation examples combine Linux networking commands with **NVUE** where appropriate.
 
-NAPALM examples will only be included when a suitable maintained driver is appropriate for the target platform.
+Implemented:
 
-API-driven automation such as NVUE may be added progressively.
+- **Netmiko using Linux SSH**
+- **Nornir + Netmiko**
+- **NAPALM external-driver template**
+- NVUE system/interface/bridge examples
+- Linux ARP, FDB and route inspection
+- `nv config show` backup example
+- Safe-by-default NVUE change example
+
+Operational areas include interfaces, bridge domains, ARP, FDB/MAC, LLDP, routes, resources, backups and troubleshooting.
+
+```python
+APPLY_CHANGE = False
+```
+
+> Validate NVUE syntax against the Cumulus Linux release used in your lab before enabling configuration changes.

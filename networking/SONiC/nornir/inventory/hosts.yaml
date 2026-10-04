@@ -1,0 +1,4 @@
+---
+sonic-01:
+  hostname: 192.0.2.20
+  groups: [sonic]

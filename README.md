@@ -42,10 +42,10 @@ Current project structure:
 | **Aruba AOS-CX** | ✅ Implemented | ✅ | External-driver template | ✅ |
 | **Huawei VRP** | ✅ Implemented | ✅ | External-driver template | ✅ |
 | **Nokia SR OS** | ✅ Implemented | ✅ | External-driver template | ✅ |
-| SONiC | Planned | Platform dependent | Community/driver dependent | ✅ planned |
-| Dell OS6 / OS9 / OS10 / Enterprise SONiC | Planned | ✅ planned | Driver dependent | ✅ planned |
-| NVIDIA Cumulus Linux / NVUE | Planned | Linux SSH / platform dependent | Driver dependent | ✅ planned |
-| VyOS | Planned | ✅ planned | Driver dependent | ✅ planned |
+| **SONiC** | ✅ Implemented | Linux SSH / SONiC CLI | External-driver template | ✅ |
+| **Dell OS6 / OS9 / OS10 / Enterprise SONiC** | ✅ Implemented | Multi-profile | External-driver template | ✅ |
+| **NVIDIA Cumulus Linux / NVUE** | ✅ Implemented | Linux SSH / NVUE | External-driver template | ✅ |
+| **VyOS** | ✅ Implemented | ✅ | External-driver template | ✅ |
 
 > NAPALM is only used where an appropriate maintained driver makes sense. The repository will not force NAPALM support where Netmiko, Nornir, APIs or another platform-specific method is more appropriate.
 
@@ -53,7 +53,7 @@ Current project structure:
 
 ## 📊 Current Progress
 
-**6 of 10 vendor/platform groups implemented — 60%**
+**10 of 10 vendor/platform groups implemented — 100%**
 
 Completed waves:
 
@@ -70,6 +70,14 @@ These platforms include Netmiko, native/core NAPALM examples and Nornir.
 - Nokia SR OS
 
 These platforms include Netmiko and Nornir operational toolkits plus a guarded NAPALM external-driver template. The NAPALM template requires an explicitly selected and validated third-party driver before execution.
+
+### Wave 3
+- Dell OS6 / OS9 / OS10 / Enterprise SONiC
+- SONiC
+- NVIDIA Cumulus Linux / NVUE
+- VyOS
+
+This wave completes the initial 10-platform baseline. Dell uses separate platform profiles, SONiC and NVIDIA use Linux-oriented execution models, and VyOS keeps its own configure/commit/save workflow.
 
 ---
 
@@ -158,7 +166,7 @@ Each vendor uses platform-specific commands instead of pretending all CLIs behav
 
 NAPALM examples focus on structured multi-vendor data collection and safe configuration workflows.
 
-For Cisco, Arista and Juniper, the repository uses the corresponding NAPALM drivers directly. For Huawei, Aruba and Nokia, the repository provides an external-driver template with `DRIVER = "CHANGE_ME_DRIVER"` and does not claim native/core NAPALM support.
+For Cisco, Arista and Juniper, the repository uses the corresponding NAPALM drivers directly. Huawei, Aruba, Nokia, Dell, SONiC, NVIDIA and VyOS use guarded external-driver templates with `DRIVER = "CHANGE_ME_DRIVER"`; the repository does not claim native/core NAPALM support for those platforms.
 
 Where a validated driver is available, the toolkits can expose getters such as:
 
@@ -230,16 +238,11 @@ Do not commit production passwords, API tokens or private keys to Git.
 
 ---
 
-## 🧭 Planned Next Waves
+## 🧭 Initial Vendor Baseline Complete
 
-### Wave 3
+The first multi-vendor baseline is now complete across all 10 defined vendor/platform groups.
 
-- Dell OS6 / OS9 / OS10 / Enterprise SONiC
-- SONiC
-- NVIDIA Cumulus Linux / NVUE
-- VyOS
-
-Future additions may also include:
+Next improvements may include:
 
 - TextFSM / structured parsing
 - Jinja2 configuration generation
