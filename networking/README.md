@@ -7,6 +7,7 @@ The labs will be organized by vendor/platform and progressively implemented with
 - **Netmiko** — SSH/CLI automation
 - **NAPALM** — structured multi-vendor getters and configuration workflows where supported
 - **Nornir** — inventory-driven orchestration for multiple devices
+- **pyNTC** — planned lifecycle-oriented automation for supported platforms
 
 ## Vendor Structure
 
@@ -44,17 +45,17 @@ Examples will cover common operational tasks such as:
 
 ## Framework Coverage
 
-| Vendor / Platform | Netmiko | NAPALM | Nornir |
-|---|---:|---:|---:|
-| Cisco | ✅ | ✅ | ✅ |
-| Arista | ✅ | ✅ | ✅ |
-| Juniper | ✅ | ✅ | ✅ |
-| Aruba AOS-CX | ✅ Implemented | External-driver template | ✅ Implemented |
-| Huawei VRP | ✅ Implemented | External-driver template | ✅ Implemented |
-| Nokia SR OS | ✅ Implemented | External-driver template | ✅ Implemented |
-| SONiC | ✅ Implemented | External-driver template | ✅ Implemented |
-| Dell OS6 / OS9 / OS10 / Enterprise SONiC | ✅ Implemented | External-driver template | ✅ Implemented |
-| NVIDIA Cumulus Linux / NVUE | ✅ Implemented | External-driver template | ✅ Implemented |
-| VyOS | ✅ Implemented | External-driver template | ✅ Implemented |
+| Vendor / Platform | Netmiko | NAPALM | Nornir | pyNTC |
+|---|---:|---:|---:|---:|
+| Cisco | ✅ | ✅ | ✅ | Planned |
+| Arista | ✅ | ✅ | ✅ | Planned |
+| Juniper | ✅ | ✅ | ✅ | Planned |
+| Aruba AOS-CX | ✅ Implemented | External-driver template | ✅ Implemented | — |
+| Huawei VRP | ✅ Implemented | External-driver template | ✅ Implemented | — |
+| Nokia SR OS | ✅ Implemented | External-driver template | ✅ Implemented | — |
+| SONiC | ✅ Implemented | External-driver template | ✅ Implemented | — |
+| Dell OS6 / OS9 / OS10 / Enterprise SONiC | ✅ Implemented | External-driver template | ✅ Implemented | — |
+| NVIDIA Cumulus Linux / NVUE | ✅ Implemented | External-driver template | ✅ Implemented | — |
+| VyOS | ✅ Implemented | External-driver template | ✅ Implemented | — |
 
 > Current progress: **10/10 vendor/platform groups implemented (100%)**. Cisco, Arista and Juniper use their NAPALM drivers directly. Huawei, Aruba, Nokia, Dell, SONiC, NVIDIA and VyOS use guarded external-driver templates where appropriate. Platform-specific execution models are preserved instead of forcing one abstraction across every NOS.
