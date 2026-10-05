@@ -9,6 +9,7 @@ El proyecto está organizado por fabricante/plataforma e implementa progresivame
 - **Netmiko** — automatización SSH/CLI
 - **NAPALM** — getters estructurados y flujos de configuración donde exista soporte apropiado
 - **Nornir** — orquestación multi-dispositivo basada en inventario
+- **pyNTC** — automatización orientada a lifecycle planificada para plataformas soportadas
 
 El repositorio está diseñado alrededor de tareas operativas reales y no solamente de ejemplos aislados de sintaxis.
 
@@ -34,18 +35,18 @@ La meta a largo plazo es mantener una misma intención operativa adaptando la im
 
 Estado actual:
 
-| Fabricante / Plataforma | Estado | Netmiko | NAPALM | Nornir |
-|---|---|---:|---:|---:|
-| **Cisco** | ✅ Implementado | ✅ | ✅ | ✅ |
-| **Arista** | ✅ Implementado | ✅ | ✅ | ✅ |
-| **Juniper** | ✅ Implementado | ✅ | ✅ | ✅ |
-| **Aruba AOS-CX** | ✅ Implementado | ✅ | Template con driver externo | ✅ |
-| **Huawei VRP** | ✅ Implementado | ✅ | Template con driver externo | ✅ |
-| **Nokia SR OS** | ✅ Implementado | ✅ | Template con driver externo | ✅ |
-| **SONiC** | ✅ Implementado | Linux SSH / SONiC CLI | Template con driver externo | ✅ |
-| **Dell OS6 / OS9 / OS10 / Enterprise SONiC** | ✅ Implementado | Multi-perfil | Template con driver externo | ✅ |
-| **NVIDIA Cumulus Linux / NVUE** | ✅ Implementado | Linux SSH / NVUE | Template con driver externo | ✅ |
-| **VyOS** | ✅ Implementado | ✅ | Template con driver externo | ✅ |
+| Fabricante / Plataforma | Estado | Netmiko | NAPALM | Nornir | pyNTC |
+|---|---|---:|---:|---:|---:|
+| **Cisco** | ✅ Implementado | ✅ | ✅ | ✅ | Planeado |
+| **Arista** | ✅ Implementado | ✅ | ✅ | ✅ | Planeado |
+| **Juniper** | ✅ Implementado | ✅ | ✅ | ✅ | Planeado |
+| **Aruba AOS-CX** | ✅ Implementado | ✅ | Template con driver externo | ✅ | — |
+| **Huawei VRP** | ✅ Implementado | ✅ | Template con driver externo | ✅ | — |
+| **Nokia SR OS** | ✅ Implementado | ✅ | Template con driver externo | ✅ | — |
+| **SONiC** | ✅ Implementado | Linux SSH / SONiC CLI | Template con driver externo | ✅ | — |
+| **Dell OS6 / OS9 / OS10 / Enterprise SONiC** | ✅ Implementado | Multi-perfil | Template con driver externo | ✅ | — |
+| **NVIDIA Cumulus Linux / NVUE** | ✅ Implementado | Linux SSH / NVUE | Template con driver externo | ✅ | — |
+| **VyOS** | ✅ Implementado | ✅ | Template con driver externo | ✅ | — |
 
 > NAPALM se utilizará únicamente donde exista un driver mantenido y adecuado. No se forzará su uso cuando Netmiko, Nornir, APIs u otro método específico de plataforma sea más apropiado.
 
@@ -198,6 +199,29 @@ Cada fabricante implementado incluye:
 - `operations_toolkit.py`
 
 Esto permite ejecutar una misma intención operativa sobre múltiples dispositivos separando credenciales, plataformas y hosts de la lógica Python.
+
+---
+
+## 🔁 Extensión pyNTC planificada
+
+pyNTC está planificado como una cuarta capa complementaria de automatización enfocada en operaciones comunes del ciclo de vida del dispositivo.
+
+Plataformas objetivo iniciales:
+
+- **Cisco**
+- **Arista**
+- **Juniper**
+
+Casos de uso previstos:
+
+- Facts del dispositivo
+- Comandos show
+- Obtención de running configuration
+- Backups locales
+- Save / commit
+- Transferencia de archivos y workflows de software donde exista soporte
+
+pyNTC no reemplazará Netmiko, NAPALM ni Nornir. Solo se añadirá donde la librería proporcione soporte apropiado para la plataforma.
 
 ---
 
